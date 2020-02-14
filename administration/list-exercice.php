@@ -15,25 +15,26 @@ $listeExercice = $requeteListeExercice->fetchAll();
 </head>
 <body>
 	<header>
-		<h1>Musculation</h1>
+		<h1>Musculation - Administration</h1>
 		<nav></nav>
 	</header>
 	
 	<section id="contenu">
 		<header><h2>Liste des exercice</h2></header>
+		<a href="ajouter-exercice.html">Ajouter un exercice</a>
 		<?php
 		foreach($listeExercice as $exercice)
 		{
             //echo $film["titre"];
 		?>
 		<div class="musculation">
-		<a href="exercice.php?id=<?=$exercice["id"];?>">
-		<h3 class="titre"><?=$exercice["nom"];?></h3>
-		</a>
-		<spam classe="muscle"><?=$exercice["muscle"];?></span>
-		<p class="resume"><?=$exercice["resume"];?></p>
-		<span class="image"><?=$exercice["image"];?></span>
-		</div>
+            <h3 class="titre"><?=$exercice["nom"];?></h3>
+            <spam classe="muscle"><?=$exercice["muscle"];?></span>
+            <p class="resume"><?=$exercice["resume"];?></p>
+            <span class="image"><?=$exercice["image"];?></span>
+            <a href="modifier-exercice.php?id=<?=$exercice["id"];?>">Modifier</a>
+            <a href="supprimer-exercice.php?id=<?=$exercice["id"];?>">Supprimer</a>
+            </div>
 		<?php
 		}
 		?>

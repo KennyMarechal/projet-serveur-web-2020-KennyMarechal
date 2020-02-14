@@ -3,7 +3,7 @@ include "connexion.php";
 
 $id = $_GET["id"];
 //echo $id;
-$MESSAGE_SQL_EXERCICE = "SELECT id, nom, muscle, Resume, description, image FROM exercice WHERE id=".$id.";";
+$MESSAGE_SQL_EXERCICE = "SELECT id, nom, muscle, resume, description, image FROM exercice WHERE id=".$id.";";
 
 $requeteExercice = $connexion->prepare($MESSAGE_SQL_EXERCICE);
 $requeteExercice->execute();
@@ -25,12 +25,12 @@ $exercice = $requeteExercice->fetch();
 	
 	<section id="contenu">
 		<header><h2>Détail du exercice</h2></header>
-		<div class="film">
+		<div class="exercie">
 		<h3 class="nom"><?=$exercice["nom"];?></h3>
 		<p class="resume"><?=$exercice["resume"];?></p>
 		<p class="description"><?=$exercice["description"];?></p>
 		<span class="muscle"><?=$exercice["muscle"];?></span>
-		<span class="image"><?=$exercice["image"];?></span>
+		<div class="image"><?=$exercice["image"];?></div>
 		</div>
 	
 	</section>

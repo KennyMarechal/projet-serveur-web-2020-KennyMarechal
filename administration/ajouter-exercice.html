@@ -1,0 +1,43 @@
+ <!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<header>
+		<h1>Musculation - Administration</h1>
+		<nav></nav>
+	</header>
+	
+	<section id="contenu">
+		<header><h2>Détail du nouveau exercice</h2></header>
+		<form class="exercice" action="traitement-ajouter-exercice.php" method="POST" enctype="multipart/form-data">
+		<div class="champ">
+            <label>Nom</label>
+            <input type="text" id="nom" name="nom"/>
+		</div>
+		<div class="champ">
+            <label>Resume</label>
+            <textarea id="resume" name="resume"></textarea>
+		</div>
+		<div class="champ">
+            <label>description</label>
+            <textarea id="description" name="description"></textarea>
+		</div>
+		<div class="champ">
+            <label>Muscle</label>
+            <input type="text" id="muscle" name="muscle"/>
+		</div>
+		<div class="champ">
+            <label for="image">image</label>
+            <input type="file" id="image" name="image"/>
+		</div>
+		<input type="submit" value="Enregistrer"/>
+		</form>
+	
+	</section>
+	
+	<footer><span id="signature"> MOI</span></footer>
+</body>
+</html> 
