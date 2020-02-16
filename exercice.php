@@ -15,6 +15,7 @@ $exercice = $requeteExercice->fetch();
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="CSS/style.css">
 	<title></title>
 </head>
 <body>
@@ -24,7 +25,7 @@ $exercice = $requeteExercice->fetch();
 	</header>
 	
 	<section id="contenu">
-		<header><h2>Détail du exercice</h2></header>
+		<header><h2>Détail de l'exercice</h2></header>
 		<div class="exercie">
 		<h3 class="nom"><?=$exercice["nom"];?></h3>
 		<p class="resume"><?=$exercice["resume"];?></p>

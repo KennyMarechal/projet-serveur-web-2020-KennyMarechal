@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="CSS/style.css">
 	<title></title>
 </head>
 <body>
@@ -11,6 +12,7 @@
 	</header>
 	
 	<section id="contenu">
+	<article>
 		<header><h2>Détail du nouveau exercice</h2></header>
 		<form class="exercice" action="traitement-ajouter-exercice.php" method="POST" enctype="multipart/form-data">
 		<div class="champ">
@@ -22,7 +24,7 @@
             <textarea id="resume" name="resume"></textarea>
 		</div>
 		<div class="champ">
-            <label>description</label>
+            <label>Description</label>
             <textarea id="description" name="description"></textarea>
 		</div>
 		<div class="champ">
@@ -30,12 +32,12 @@
             <input type="text" id="muscle" name="muscle"/>
 		</div>
 		<div class="champ">
-            <label for="image">image</label>
+            <label for="image">Image</label>
             <input type="file" id="image" name="image"/>
 		</div>
 		<input type="submit" value="Enregistrer"/>
 		</form>
-	
+	</article>
 	</section>
 	
 	<footer><span id="signature"> MOI</span></footer>

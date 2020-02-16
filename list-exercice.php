@@ -11,11 +11,12 @@ $listeExercice = $requeteListeExercice->fetchAll();
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="CSS/style.css">
 	<title></title>
 </head>
 <body>
 	<header>
-		<h1>Musculation</h1>
+		<h1 clase="tire">Musculation</h1>
 		<nav></nav>
 	</header>
 	
@@ -30,7 +31,7 @@ $listeExercice = $requeteListeExercice->fetchAll();
 		<a href="exercice.php?id=<?=$exercice["id"];?>">
 		<h3 class="titre"><?=$exercice["nom"];?></h3>
 		</a>
-		<spam classe="muscle"><?=$exercice["muscle"];?></span>
+		<spam id="muscle"><?=$exercice["muscle"];?></span>
 		<p class="resume"><?=$exercice["resume"];?></p>
 		<span class="image"><?=$exercice["image"];?></span>
 		</div>

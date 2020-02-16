@@ -11,6 +11,7 @@ $listeExercice = $requeteListeExercice->fetchAll();
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="CSS/style.css">
 	<title></title>
 </head>
 <body>
@@ -21,7 +22,7 @@ $listeExercice = $requeteListeExercice->fetchAll();
 	
 	<section id="contenu">
 		<header><h2>Liste des exercice</h2></header>
-		<a href="ajouter-exercice.html">Ajouter un exercice</a>
+		<a class="btn" href="ajouter-exercice.html">Ajouter un exercice</a>
 		<?php
 		foreach($listeExercice as $exercice)
 		{
@@ -29,12 +30,12 @@ $listeExercice = $requeteListeExercice->fetchAll();
 		?>
 		<div class="musculation">
             <h3 class="titre"><?=$exercice["nom"];?></h3>
-            <spam classe="muscle"><?=$exercice["muscle"];?></span>
+            <spam id="muscle"><?=$exercice["muscle"];?></span>
             <p class="resume"><?=$exercice["resume"];?></p>
             <span class="image"><?=$exercice["image"];?></span>
-            <a href="modifier-exercice.php?id=<?=$exercice["id"];?>">Modifier</a>
-            <a href="supprimer-exercice.php?id=<?=$exercice["id"];?>">Supprimer</a>
-            </div>
+            <a class="btn" href="modifier-exercice.php?id=<?=$exercice["id"];?>">Modifier</a>
+            <a class="btn" href="supprimer-exercice.php?id=<?=$exercice["id"];?>">Supprimer</a>
+        </div>
 		<?php
 		}
 		?>

@@ -25,7 +25,7 @@ $exercice = $requeteExercice->fetch();
 	
 	<section id="contenu">
 		<header><h2>Détail du nouveau exercice</h2></header>
-		<form class="exercice" action="traitement-ajouter-exercice.php" method="POST">
+		<form class="exercice" action="traitement-modifier-exercice.php" method="POST" enctype="multipart/form-data">
 		<div class="champ">
             <label>Nom</label>
             <input type="text" id="nom" name="nom" value="<?=$exercice["nom"]?>"/>
@@ -43,8 +43,8 @@ $exercice = $requeteExercice->fetch();
             <input type="text" id="muscle" name="muscle" value="<?=$exercice["muscle"]?>"/>
 		</div>
 		<div class="champ">
-            <label>image</label>
-            <input type="text" id="image" name="image" value="<?=$exercice["image"]?>"/>
+            <label for="image">image</label>
+            <input type="file" id="image" name="image"/>
 		</div>
 		<input type="submit" value="Enregistrer"/>
 		</form>
