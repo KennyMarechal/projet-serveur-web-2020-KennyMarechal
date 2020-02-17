@@ -15,6 +15,8 @@ $exercice = $requeteExercice->fetch();
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="CSS/style.css">
+	
 	<title></title>
 </head>
 <body>

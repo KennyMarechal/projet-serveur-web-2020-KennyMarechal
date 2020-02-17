@@ -20,9 +20,7 @@ $image = $_FILES['image']['name'];
 $muscle = $_POST["muscle"];
 
 
-$MESSAGE_SQL_AJOUTER_EXERCICE = "INSERT INTO exercice (nom, resume, description, muscle, image) VALUES(" .
-"'" . $nom . "',".
-"'" . $resume . "',".
+$MESSAGE_SQL_AJOUTER_EXERCICE = "INSERT INTO exercice (nom, resume, description, muscle, image) VALUES(" ."'" . $nom . "',"."'" . $resume . "',".
 "'" . $description . "',".
 "'" . $muscle . "',".
 "'" . $image . "'".
@@ -30,8 +28,8 @@ $MESSAGE_SQL_AJOUTER_EXERCICE = "INSERT INTO exercice (nom, resume, description,
 
 //echo $MESSAGE_SQL_AJOUTER_EXERCICE;
 
-$requeteAjouterFilm = $connexion->prepare($MESSAGE_SQL_AJOUTER_EXERCICE);
-$reussiteAjout = $requeteAjouterFilm->execute();
+$requeteAjouterExercice = $connexion->prepare($MESSAGE_SQL_AJOUTER_EXERCICE);
+$reussiteAjout = $requeteAjouterExercice->execute();
 
 if($reussiteAjout){?>
 Votre exercice a ete a ajouté a la base de données

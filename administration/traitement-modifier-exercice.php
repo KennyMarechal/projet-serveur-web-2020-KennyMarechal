@@ -20,21 +20,16 @@ $image = $_FILES['image']['name'];
 $muscle = $_POST["muscle"];
 
 
-$MESSAGE_SQL_AJOUTER_EXERCICE = "UPDATE exercice SET (nom, resume, description, muscle, image) VALUES(" .
-"'" . $nom . "',".
-"'" . $resume . "',".
-"'" . $description . "',".
-"'" . $muscle . "',".
-"'" . $image . "'".
-");";
+
+$MESSAGE_SQL_AJOUTER_EXERCICE = "UPDATE `exercice` SET `nom`=". $nom .",`muscle`=". $muscle .",`resume`=". $resume .",`description`=". $description .",`image`=". $image .";";
 
 echo $MESSAGE_SQL_AJOUTER_EXERCICE;
 
-$requeteAjouterFilm = $connexion->prepare($MESSAGE_SQL_AJOUTER_EXERCICE);
-$reussiteAjout = $requeteAjouterFilm->execute();
+$requeteAjouterExercice = $connexion->prepare($MESSAGE_SQL_AJOUTER_EXERCICE);
+$reussiteAjout = $requeteAjouterExercice->execute();
 
 if($reussiteAjout){?>
-Votre exercice a ete a ajouté a la base de données
+Votre exercice a ete modifier a la base de données
 <?php
 }
 ?> 
