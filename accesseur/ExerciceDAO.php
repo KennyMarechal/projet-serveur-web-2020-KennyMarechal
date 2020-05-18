@@ -88,7 +88,6 @@ class ExerciceDAO{
 
     }
 
-
     $requeteRechercherExerciceAvancer = BaseDeDonnees::getConnexion()->prepare($MESSAGE_SQL_RECHERCHER_EXERCICE_AVANCER);
     $requeteRechercherExerciceAvancer->execute();
     $exerciceRechercheAvancer= $requeteRechercherExerciceAvancer->fetchAll();
