@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="CSS/style.css">
+	<title></title>
+</head>
+<body>
+	<header>
+		<h1>Recheche Avancer</h1>
+		<nav></nav>
+	</header>
+	
+	<section id="contenu">
+	<article>
+        <form class="exercice" action="traitement-recherche-avancer.php" method="GET" enctype="multipart/form-data">
+            
+            <div class="champ-recherche">
+                <label>Nom</label>
+                <input type="text" id="nom" name="nom-exercice"/>
+            </div>
+            <br>  
+                <label>Muscle</label><br>
+                <input type="checkbox" id="dos" name="muscle[dos]" value="on">
+                <label for="dos">Dos</label><br>
+                <input type="checkbox" id="biceps" name="muscle[biceps]" value="on">
+                <label for="biceps">Biceps</label><br>
+                <input type="checkbox" id="quadricep" name="muscle[quadricep]" value="on">
+                <label for="quadricep">Quadricep</label><br>  
+                <input type="checkbox" id="pectoraux" name="muscle[pectoraux]" value="on">
+                <label for="pectoraux">Pectoraux</label><br>  
+		<input type="submit" value="Rechercher"/>
+		</form>
+    </article>
+    <br>  
+    <a href="list-exercice.php">Retour</a>
+	</section>
+</body>
+</html> 
+

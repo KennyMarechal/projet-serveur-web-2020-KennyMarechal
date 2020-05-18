@@ -1,39 +1,51 @@
 <?php
-include "connexion.php";
+require "../configuration.php";
+ 
 
-//print_r($_FILES);
-$repertoireIllustration = $_SERVER['DOCUMENT_ROOT'] . "/projet-serveur-web-2020-KennyMarechal/illustration/";
-$fichierDestination = $repertoireIllustration . $_FILES['image']['name'];
+$repertoireIllustration =
+  $_SERVER['DOCUMENT_ROOT'] . "/projet-serveur-web-2020-KennyMarechal/illustration/";
+
+$fichierDestination =
+  $repertoireIllustration . $_FILES['image']['name'];
+
 $fichierSource = $_FILES['image']['tmp_name'];
 
-if(move_uploaded_file($fichierSource,$fichierDestination))
-{?>
+$illustration = $_FILES['image']['name'];
+
+
+
+if(move_uploaded_file($fichierSource,$fichierDestination)){?>
+
+
 	Votre envoi de fichier a bien fonctionné
-	<img src="../illustration/<?=$_FILES['image']['name']?>" alt=""/>
+	<img src="../illustration/<?=$_FILES['illustration']['name']?>" alt=""/>
+
 <?php
 }
 
-$nom = $_POST["nom"];
-$resume = $_POST["resume"];
-$description = $_POST["description"];
-$image = $_FILES['image']['name'];
-$muscle = $_POST["muscle"];
+$filtresExercice = [];
+
+$filtresExercice['nom'] = FILTER_SANITIZE_ENCODED;
+$filtresExercice['resume'] = FILTER_SANITIZE_ENCODED;
+$filtresExercice['description'] = FILTER_SANITIZE_ENCODED;
+$filtresExercice['muscle'] = FILTER_SANITIZE_ENCODED;
 
 
-$MESSAGE_SQL_AJOUTER_EXERCICE = "INSERT INTO exercice (nom, resume, description, muscle, image) VALUES(" ."'" . $nom . "',"."'" . $resume . "',".
-"'" . $description . "',".
-"'" . $muscle . "',".
-"'" . $image . "'".
-");";
+$exercice = filter_input_array(INPUT_POST, $filtresExercice);
+$exercice['image'] = $illustration;
 
-//echo $MESSAGE_SQL_AJOUTER_EXERCICE;
+require CHEMIN_ACCESSEUR . "ExerciceDAO.php";
+$reussiteAjout = ExerciceDAO::ajouterExercice($exercice);
 
-$requeteAjouterExercice = $connexion->prepare($MESSAGE_SQL_AJOUTER_EXERCICE);
-$reussiteAjout = $requeteAjouterExercice->execute();
+require "../lib/simpleimage/SimpleImage.php";
+$image = new SimpleImage();
+$image->load('../illustration/' . $illustration);
+$image->resizeToWidth(100);
+$image->save('../mini/' . $illustration);
 
 if($reussiteAjout){?>
-Votre exercice a ete a ajouté a la base de données
+Votre film a été ajouté à la base de données!
 <?php
 }
-?> 
- 
+?>
+

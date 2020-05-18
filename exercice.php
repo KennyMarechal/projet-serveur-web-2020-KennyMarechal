@@ -1,13 +1,10 @@
 <?php
-include "connexion.php";
+require "configuration.php";
+require CHEMIN_ACCESSEUR . "ExerciceDAO.php";
 
-$id = $_GET["id"];
-//echo $id;
-$MESSAGE_SQL_EXERCICE = "SELECT id, nom, muscle, resume, description, image FROM exercice WHERE id=".$id.";";
-
-$requeteExercice = $connexion->prepare($MESSAGE_SQL_EXERCICE);
-$requeteExercice->execute();
-$exercice = $requeteExercice->fetch();
+$id = filter_input(INPUT_GET, 'id' , FILTER_VALIDATE_INT);
+$exercice = ExerciceDAO::lireExercice($id);
+//print_r($id);
 
 ?>
 
@@ -36,6 +33,6 @@ $exercice = $requeteExercice->fetch();
 	
 	</section>
 	
-	<footer><span id="signature par moi"></span></footer>
+	<a href="list-exercice.php">Retour</a>
 </body>
 </html>

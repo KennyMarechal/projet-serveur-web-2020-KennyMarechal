@@ -1,7 +1,8 @@
 #contenu{
-    position:relative;
+    position:absolute;
     width:800px;
     margin:0 auto;
+    overflow:hidden;
 }
 h1{
     font-size: 32px;
@@ -16,7 +17,7 @@ h1{
 }
 .musculation{
     background-color:white;
-    text-align: center;
+    position:relative;
     border:solid 3px #d1d8e0;
     border-radius:5px;
     box-shadow: 6px 6px 6px #a5b1c2;
@@ -24,7 +25,7 @@ h1{
     height:400px;
     margin-bottom:10px;
 }
-h2{
+h3{
     width:350px;
     top:5px;
     left:325px;
@@ -61,7 +62,7 @@ h2{
    margin-left: 10%;
 }
 .description{
-    color:black;
+    color:green;
    font-weight:bold;
    position: relative;
    width:400px;
@@ -72,7 +73,47 @@ h2{
    margin-left: 10%;
 }
 .image{
+    color:black;
+   font-weight:bold;
+   position: absolute;
+   width:400px;
+   height:auto;
+   padding:3px;
+   text-align: justify;
+   margin-top: 10%;
+   margin-left: 10%;
+}
+.btn{
+	background-color: #4CAF50; 
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 25px;
+}
+.btn:hover{
+	background-color: rgb(181, 171, 182);
+    color: white;
+    transform: scale(1.1);
+}
+.image{
     position :absolute;
+    left: 400px;
+    top: 150px;
+}
+
+.exercice{
+	color:#adaf0a;
+	font-weight:bold;
+	border:1px solid #adaf0a;
+	border-radius:10px;
+	margin-top: 0px;
+	background-color:#ecf0f1;
+	background-position:bottom;	
 }
 form{
 	color:#adaf0a;
@@ -86,4 +127,22 @@ form{
 }
 .champ{
     text-align:center;
+    margin : 10px;
+}
+
+#recherche{
+    color:#616160;
+	font-weight:bold;
+	border:1px solid #61615b;
+	border-radius:10px;
+	margin-top: 0px;
+	background-color:#ecf0f1;
+}
+#section-recherche{
+    position: relative; left: 300px;
+    width:200px;
+    margin:0 auto;
+}
+#bouton-recherche{
+    position: relative; left: 30%;
 }

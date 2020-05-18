@@ -9,6 +9,3 @@ $base = 'musculation';
 
 $dsn = 'mysql:dbname='.$base.';host=' . $hote;
 $connexion = new PDO($dsn, $usager, $motdepasse);
-
-
-?> 
