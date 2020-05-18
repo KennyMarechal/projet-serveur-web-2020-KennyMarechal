@@ -65,9 +65,7 @@ class ExerciceDAO{
   public static function rechercherExerciceAvance($exerciceRecherche){
     
     $nom = $exerciceRecherche['nom-exercice'];
-    //$muscle = $exerciceRecherche['muscle'];
 
-    //print_r($muscle);
     $MESSAGE_SQL_RECHERCHER_EXERCICE_AVANCER = "SELECT id, nom, resume, description, muscle, image FROM exercice WHERE ";
     if(!empty($nom))
     {
@@ -76,7 +74,6 @@ class ExerciceDAO{
     }
     elseif(!empty($exerciceRecherche))
     {    
-      print_r($exerciceRecherche);
       foreach($exerciceRecherche['muscle'] as $nomMuscle => $valeur)
       {
         if("on" == $valeur)
@@ -90,8 +87,7 @@ class ExerciceDAO{
       $MESSAGE_SQL_RECHERCHER_EXERCICE_AVANCER .= $condition;
 
     }
-    
-    print_r($MESSAGE_SQL_RECHERCHER_EXERCICE_AVANCER);
+
 
     $requeteRechercherExerciceAvancer = BaseDeDonnees::getConnexion()->prepare($MESSAGE_SQL_RECHERCHER_EXERCICE_AVANCER);
     $requeteRechercherExerciceAvancer->execute();
