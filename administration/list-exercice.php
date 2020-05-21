@@ -23,6 +23,12 @@ $listeExercice = $requeteListeExercice->fetchAll();
 	<section id="contenu">
 		<header><h2>Liste des exercice</h2></header>
 		<a class="btn" href="ajouter-exercice.html">Ajouter un exercice</a>
+
+		<div class="statistique">
+			<a class="btn" href="contenu.php">Contenu</a>
+			<a class="btn" href="visites.php">Visites</a>
+		</div>
+
 		<?php
 		foreach($listeExercice as $exercice)
 		{

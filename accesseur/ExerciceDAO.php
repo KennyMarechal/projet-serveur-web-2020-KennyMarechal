@@ -46,6 +46,27 @@ class ExerciceDAO{
     return $reussiteAjout;
   }
 
+  public static function ajouterClic($clic){
+    //print_r($clic);
+    
+    $MESSAGE_SQL_AJOUTER_CLIC =
+    "INSERT INTO clic (nom_page, ip_visiteur, langue_navigateur, referant, timestamp) VALUES(" .
+    "'".$clic['REQUEST_URI']."'" .",".
+    "'".$clic['REMOTE_ADDR']."'" .",".
+    "'".$clic['HTTP_ACCEPT_LANGUAGE']."'" .",".
+    "'".$clic['HTTP_REFERER']."'" .",".
+    "NOW()" .
+    ");";
+    
+    $requeteAjouterClic = BaseDeDonnees::getConnexion()->prepare($MESSAGE_SQL_AJOUTER_CLIC);
+
+    //print_r($MESSAGE_SQL_AJOUTER_CLIC);
+
+    $reussiteAjout = $requeteAjouterClic->execute();
+    
+    return $reussiteAjout;
+  }
+
   public static function rechercherExerciceFacile($texte){
     $MESSAGE_SQL_RECHERCHER_EXERCICE = 
     "SELECT id, nom, resume, description, muscle, image FROM exercice WHERE 

@@ -4,7 +4,8 @@ require CHEMIN_ACCESSEUR . "ExerciceDAO.php";
 
 $id = filter_input(INPUT_GET, 'id' , FILTER_VALIDATE_INT);
 $exercice = ExerciceDAO::lireExercice($id);
-//print_r($id);
+ExerciceDAO::ajouterClic($_SERVER);
+//print_r($_SERVER);
 
 ?>
 
