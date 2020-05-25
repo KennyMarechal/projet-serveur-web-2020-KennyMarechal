@@ -20,16 +20,19 @@ $listeCategorieIp = $requeteCategorieIp->fetchAll();
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="stylee.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body>
     <header>
-        <h1>Musculation - Administration - Stats</h1>
+    <h1>Visites</h1> 
     </header>
+    
+<section id="partie-haute">
 
-    <table border="1" cellpadding="10" cellspacing="1">
+    <article id="box">
+    <table border="1" cellpadding="5" cellspacing="1">
         <tr>
             <th>ip_visiteur</th>
             <th>nombre_clic</th>
@@ -39,16 +42,16 @@ $listeCategorieIp = $requeteCategorieIp->fetchAll();
         foreach ($listeCategorieIp as $ip) {
         ?>
 
-            <tr>
-                <td><?= $ip["ip_visiteur"]; ?></td>
-                <td><?= $ip["nombre_clic"]; ?></td>
-            </tr>
+        <tr>
+            <td><?= $ip["ip_visiteur"]; ?></td>
+            <td><?= $ip["nombre_clic"]; ?></td>
+        </tr>
         <?php
         }
         ?>
     </table>
 
-    <table border="1" cellpadding="10" cellspacing="1">
+    <table border="1" cellpadding="10%" cellspacing="5%">
         <tr>
             <th>date</th>
             <th>nombre clic</th>
@@ -58,40 +61,46 @@ $listeCategorieIp = $requeteCategorieIp->fetchAll();
         foreach ($listeCategorieJournee as $jour) {
         ?>
 
-            <tr>
-                <td><?= $jour["date"]; ?></td>
-                <td><?= $jour["COUNT(*)"]; ?></td>
-            </tr>
+        <tr>
+            <td><?= $jour["date"]; ?></td>
+            <td><?= $jour["COUNT(*)"]; ?></td>
+        </tr>
         <?php
         }
         ?>
     </table>
-
-    <div class="chart-container" style="position: relative; height:20vh; width:40vw">
-        <canvas id="graphique"></canvas>
-    </div>
+    </article>
+    <aritcle id="box">
+        <canvas id="graphique-1"></canvas>
+    
     <script>
-        var donnees = [<?php foreach ($listeCategorieJournee as $jour) echo $jour["COUNT(*)"] . ","; ?>]; // Tableau des données
-        var etiquettes = [<?php foreach ($listeCategorieJournee as $jour) echo "'" . $jour["date"] . "'" . ","; ?>] // Tableau des étiquettes
+    var donnees = [ <?php foreach($listeCategorieJournee as $jour) echo $jour["COUNT(*)"].
+        ","; ?>
+    ]; // Tableau des données
+    var etiquettes = [ <?php foreach($listeCategorieJournee as $jour) echo "'".$jour["date"].
+        "'".
+        ","; ?>
+    ] // Tableau des étiquettes
 
-        var cible = document.getElementById('graphique').getContext('2d');
-        var graphiqueLigne = new Chart(cible, {
-            type: 'line',
+    var cible = document.getElementById('graphique-1').getContext('2d');
+    var graphiqueLigne = new Chart(cible, {
+        type: 'line',
 
-            data: {
-                labels: etiquettes,
-                datasets: [{
-                    label: 'Visite par jour',
-                    backgroundColor: 'rgb(1, 3, 254)',
-                    borderColor: 'rgb(1, 3, 254)',
-                    data: donnees
-                }]
-            },
+        data: {
+            labels: etiquettes,
+            datasets: [{
+                label: 'Visite par jour',
+                //backgroundColor: 'rgb(1, 3, 254)',
+                borderColor: 'rgb(1, 3, 254)',
+                data: donnees
+            }]
+        },
 
-            options: {}
-        });
+        options: {}
+    });
     </script>
-
+    </aritcle>
+</section>
 </body>
 
 </html>

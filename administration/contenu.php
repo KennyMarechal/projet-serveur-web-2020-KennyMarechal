@@ -14,16 +14,19 @@ $listeCategorie = $requeteCategorie->fetchAll();
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="stylee.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body>
-    <header>
-        <h1>Musculation - Administration - Stats</h1>
-    </header>
+<header>
+<h1>Contenu</h1>
+</header>
 
-    <table border="1" cellpadding="10" cellspacing="1">
+<section id="partie-haute">
+
+    <article id="box">
+    <table border="1%" cellpadding="10%" cellspacing="5%">
         <tr>
             <th>Muscles</th>
             <th>Nombres Exercices</th>
@@ -51,18 +54,18 @@ $listeCategorie = $requeteCategorie->fetchAll();
         }
         ?>
     </table>
-
-    <div class="chart-container" style="position: relative; height:20vh; width:40vw">
+    </article>
+<article id="box">
+    
         <h4>Prix par Muscle</h4>
-        <canvas id="graphique"></canvas>
-    </div>
-
+        <canvas id="graphique-2"></canvas>
+    
     <script>
         var donnees = [<?php foreach ($listeCategorie as $categorie) echo $categorie["prix"] . ","; ?>]
-        var etiquettes = ['Biceps', 'Dos', 'Pectoraux', 'Quadricep'];
+        var etiquettes = [<?php foreach ($listeCategorie as $categorie) echo "'" . $categorie["muscle"] . "'" . ","; ?>];
         var couleurs = ['rgba(255, 99, 132, 0.9)', 'rgba(54, 162, 235, 0.9)', 'rgba(255, 206, 86, 0.9)', 'rgba(75, 192, 192, 0.9)']
 
-        var cible = document.getElementById('graphique');
+        var cible = document.getElementById('graphique-2');
         var graphiqueTarte = new Chart(cible, {
             type: 'pie',
             data: {
@@ -78,7 +81,8 @@ $listeCategorie = $requeteCategorie->fetchAll();
             }
         });
     </script>
-
+</article>
+</section>
 </body>
 
 </html>
